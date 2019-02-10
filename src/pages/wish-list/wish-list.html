@@ -14,8 +14,8 @@
         </ion-thumbnail>
         <h2>{{ item.name }}</h2>
         <p>{{ item.description }}</p>
-        <small float-end style="color: green">{{ item.price.amount }}</small>
-        <button ion-button clear item-end (click)="viewItem()">View</button>
+        <small float-end style="color: green">${{ item.price.amount / 100 }}</small>
+        <button ion-button clear item-end (click)="viewItem(item)">View</button>
       </ion-item>
       <ion-item-options side="right">
         <button ion-button color="danger">

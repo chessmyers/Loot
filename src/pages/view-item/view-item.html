@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Viewing: {{ item.name }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <h1>{{ item.descr }}</h1>
+  <img [src]="item.pic">
+  <p>${{ item.price / 100 }}</p>
+
+</ion-content>

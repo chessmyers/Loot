@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CartItem } from "../../app/models/cartItem";
 import { CheckoutPage } from "../checkout/checkout";
-import { Product } from "../../app/models/Product";
 import { MoltinService } from "../../app/services/MoltinService";
+import {ViewItemPage} from "../view-item/view-item";
 
 
 @IonicPage()
@@ -37,8 +37,9 @@ export class CartPage {
     this.navCtrl.push(CheckoutPage);
   }
 
-  viewItem(product: Product) {
-
+  viewItem(product: CartItem) {
+      console.log({product});
+      this.navCtrl.push(ViewItemPage, {product: product});
   }
 
 

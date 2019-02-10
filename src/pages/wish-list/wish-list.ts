@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {CartItem} from "../../app/models/cartItem";
 import { MoltinService } from "../../app/services/MoltinService";
 import {Product} from "../../app/models/Product";
+import {ViewItemPage} from "../view-item/view-item";
 
 
 @IonicPage()
@@ -22,13 +23,18 @@ export class WishListPage {
     //   new CartItem("Pizza", null, "Pineapple and bacon", 32.43)
     // ]
 
+  }
+
+  ionViewWillEnter() {
     this.items = this.moltServ.getSavedItems()
   }
 
 
 
-  viewItem() {
-
+  viewItem(product: Product) {
+    // @ts-ignore
+    let item = new CartItem(product.name, product.description, product.pic, product.price.amount);
+    this.navCtrl.push(ViewItemPage,{product: item});
   }
 
 

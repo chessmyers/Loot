@@ -32,6 +32,7 @@ export class MainPage {
           product.price[0], product.commodity_type, product.relationships.main_image && product.relationships.main_image.data.id);
         tempProducts.push(newProd);
       });
+      console.log(products.data);
       this.products = tempProducts;
     }).then(() => {
       let pics = this.products.map(product => product.pic);
@@ -52,7 +53,7 @@ export class MainPage {
         if (itemsProcessed == this.products.length) {
           if (loading){ loading.dismiss(); loading= null; }
           setTimeout(() => {
-              this.stackedCards(this.moltServ);
+              this.stackedCards(this.moltServ, this.products);
               console.log(this.products);
             },
             500
@@ -82,8 +83,9 @@ export class MainPage {
   }
 
 
-    stackedCards (molt) {
+    stackedCards (molt, products) {
     var moltService = molt;
+    var prods = products;
 
       var stackedOptions = 'Top'; //Change stacked cards view from 'Bottom', 'Top' or 'None'.
       var rotate = true; //Activate the elements' rotation for each move on stacked cards.
@@ -317,10 +319,17 @@ export class MainPage {
 
       //Swipe active card to right.
       function onSwipeRight() {
-        let prod = this.products.find((product) => {
-          return product.id = currentElementObj.childNodes[1].id;
-        });
-        moltService.addToSavedItems(prod);
+        let item;
+        for (let prod of products) {
+          if (prod.id == currentElementObj.childNodes[1].id) {
+            item = prod;
+          }
+        }
+        // }
+        // let prod = prods.find((product) => {
+        //   return product.id = ;
+        // });
+        moltService.addToSavedItems(item);
 
         removeNoTransition();
         transformUi(1000, 0, 0, currentElementObj);
@@ -340,7 +349,6 @@ export class MainPage {
 
       //Swipe active card to top.
       function onSwipeTop() {
-        console.log(currentElementObj.childNodes[1].id);
         moltService.getMoltin().Cart().AddProduct(currentElementObj.childNodes[1].id, 1).then((item) => {
           console.log("Added item with id " + currentElementObj.id + " to cart");
         }).catch((err) => {

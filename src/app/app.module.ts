@@ -13,6 +13,7 @@ import { CartPage } from "../pages/cart/cart";
 import { WishListPage } from "../pages/wish-list/wish-list";
 import { CheckoutPage } from "../pages/checkout/checkout";
 import { ReceiptPage } from "../pages/receipt/receipt";
+import { ViewItemPage } from "../pages/view-item/view-item";
 
 import { MoltinService } from "./services/MoltinService";
 
@@ -30,7 +31,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     CartPage,
     WishListPage,
     CheckoutPage,
-    ReceiptPage
+    ReceiptPage,
+    ViewItemPage
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     CartPage,
     WishListPage,
     CheckoutPage,
-    ReceiptPage
+    ReceiptPage,
+    ViewItemPage
   ],
   providers: [
     StatusBar,
