@@ -12,17 +12,18 @@
         <ion-thumbnail item-start>
           <img [src]="item.pic">
         </ion-thumbnail>
+        <div float-end style="color: green;">${{item.price.amount / 100}}</div>
+        <br>
         <h2>{{ item.name }}</h2>
         <p>{{ item.description }}</p>
-        <small float-end style="color: green">${{ item.price.amount / 100 }}</small>
         <button ion-button clear item-end (click)="viewItem(item)">View</button>
       </ion-item>
       <ion-item-options side="right">
-        <button ion-button color="danger">
+        <button ion-button color="danger" (click)="onRemove(item)">
           Remove
           <ion-icon name="trash" padding></ion-icon>
         </button>
-        <button ion-button color="secondary">
+        <button ion-button color="secondary" (click)="addToCart(item)">
           Add to Cart
           <ion-icon name="cart" padding></ion-icon>
         </button>

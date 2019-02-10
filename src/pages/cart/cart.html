@@ -11,13 +11,14 @@
       <ion-thumbnail item-start>
         <img [src]="item.pic">
       </ion-thumbnail>
+      <div float-end style="color: green;">${{ item.price / 100 }}</div>
+      <br>
       <h2>{{ item.name }}</h2>
       <p>{{ item.descr }}</p>
-      <small float-end style="color: green">${{ item.price / 100 }}</small>
       <button ion-button clear item-end (click)="viewItem(item)">View</button>
     </ion-item>
     <ion-item-options side="right">
-      <button ion-button color="danger">
+      <button ion-button color="danger" (click)="removeCart(item)">
         Remove from Cart
         <ion-icon name="trash" padding></ion-icon>
       </button>
@@ -25,6 +26,6 @@
     </ion-item-sliding>
   </ion-list>
 </ion-content>
-<ion-footer>
-  <button ion-button float-end (click)="onCheckout()">Checkout</button>
+<ion-footer no-border padding>
+  <button ion-button round float-end (click)="onCheckout()">Checkout</button>
 </ion-footer>

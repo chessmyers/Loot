@@ -2,7 +2,7 @@
   <ion-toolbar color="primary">
     <ion-buttons start>
       <button ion-button icon-only color="royal" (click)="goToWishlist()">
-        <ion-icon name="star"></ion-icon>
+        <ion-icon name="heart"></ion-icon>
       </button>
     </ion-buttons>
     <img src="../../assets/imgs/textTitle.png" height="50" width="150" style="margin: auto;"/>
@@ -28,12 +28,24 @@
             <div class="card-image" style="max-height: 100%; max-width: 100%;"><img [src]="product.pic" /></div>
             </div>
             <div class="card-titles">
-              <h1 class="productName">{{ product.name }}</h1>
-              <h3 class="productPrice">${{ product.price.amount / 100 }}</h3>
+              <ion-grid style="width: 130%;">
+                <ion-row>
+                  <ion-col>
+                    <h1 class="productName" text-center>{{ product.name }}</h1>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <h3 class="productPrice" style="color: green" text-center>${{ product.price.amount / 100 }}</h3>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+
             </div>
           </div>
           <div class="card-footer">
-            <div class="popular-destinations-text">{{ product.description }}</div>
+
+            <div class="popular-destinations-text" style="display: inline">{{ product.description }}</div>
             <!--<div class="popular-destinations-images">-->
               <!--<div class="circle"><img src="https://image.ibb.co/jmEYL7/adventure_1.jpg" width="100%" height="100%"/></div>-->
               <!--<div class="circle"><img src="https://image.ibb.co/nsCynn/adventure_2.jpg" width="100%" height="100%"/></div>-->

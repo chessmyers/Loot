@@ -10,7 +10,7 @@ import { CartItem } from "../../app/models/cartItem";
 })
 export class ViewItemPage {
 
-  item: CartItem = new CartItem("","","","");
+  item: CartItem = new CartItem("","","","", "");
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.item = this.navParams.get('product');

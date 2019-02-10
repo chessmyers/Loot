@@ -22,7 +22,7 @@ export class MainPage {
               private loadingCtrl: LoadingController, private http: HttpClient) {
     console.log("Running constructor");
     let loading = this.loadingCtrl.create({
-      content: "Loading items..."
+      content: "Finding treasure..."
     });
     loading.present();
     let tempProducts = [];

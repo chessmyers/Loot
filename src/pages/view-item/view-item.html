@@ -5,9 +5,17 @@
 </ion-header>
 
 <ion-content padding>
-
-  <h1>{{ item.descr }}</h1>
-  <img [src]="item.pic">
-  <p>${{ item.price / 100 }}</p>
+  <ion-card>
+    <img [src]="item.pic" width="256" height="256"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{ item.name}}
+      </ion-card-title>
+      <p>
+        {{ item.descr }}
+      </p>
+      <h2 style="color: green; font-size: 130%;" float-right padding>${{ item.price / 100 }}</h2>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>

@@ -24,22 +24,36 @@ export class CartPage {
   }
 
   ionViewWillLoad() {
+    this.getCartItems();
+  }
+
+  getCartItems() {
+    this.items = [];
     this.moltServ.getMoltin().Cart().Items().then((items) => {
       items.data.forEach((item) => {
-        let cartItem = new CartItem(item.name, item.description, item.image.href, item.unit_price.amount);
+        let cartItem = new CartItem(item.name, item.description, item.image.href, item.unit_price.amount, item.id);
         this.items.push(cartItem);
       })
+    }).catch((err) => {
+      console.log(err);
     })
   }
 
-
   onCheckout() {
-    this.navCtrl.push(CheckoutPage);
+    this.navCtrl.push(CheckoutPage, {items: this.items});
   }
 
   viewItem(product: CartItem) {
       console.log({product});
       this.navCtrl.push(ViewItemPage, {product: product});
+  }
+
+  removeCart(item: CartItem) {
+    this.moltServ.getMoltin().Cart().RemoveItem(item.id).then(() => {
+      this.getCartItems();
+    }).catch((err) => {
+      console.log(err);
+    })
   }
 
 

@@ -37,6 +37,22 @@ export class WishListPage {
     this.navCtrl.push(ViewItemPage,{product: item});
   }
 
+  onRemove(item: Product) {
+    this.items = this.items.filter((arrayItem) => {
+      return arrayItem.id != item.id;
+    })
+  }
+
+  addToCart(item: Product) {
+    this.moltServ.getMoltin().Cart().AddProduct(item.id, 1).then((item) => {
+      console.log("Added item with id " + item.id + " to cart");
+      this.onRemove(item);
+    }).catch((err) => {
+      console.log(err);
+    });
+    this.onRemove(item);
+  }
+
 
 
 }

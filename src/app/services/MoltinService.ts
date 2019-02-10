@@ -36,6 +36,14 @@ export class MoltinService {
     return this.categories;
   }
 
+  checkOut(customer, address) {
+    return this.Moltin.Cart().Checkout(customer, address);
+  }
+
+  makePayment(order, payInfo) {
+    return this.Moltin.Orders.Payment(order.id, payInfo);
+  }
+
 
 
 }
