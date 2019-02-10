@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Cart</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list *ngFor="let item of items">
+    <ion-item-sliding>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img [src]="item.pic">
+      </ion-thumbnail>
+      <h2>{{ item.name }}</h2>
+      <p>{{ item.descr }}</p>
+      <small float-end style="color: green">${{ item.price / 100 }}</small>
+      <button ion-button clear item-end (click)="viewItem()">View</button>
+    </ion-item>
+    <ion-item-options side="right">
+      <button ion-button color="danger">
+        Remove from Cart
+        <ion-icon name="trash" padding></ion-icon>
+      </button>
+    </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <button ion-button float-end (click)="onCheckout()">Checkout</button>
+</ion-footer>

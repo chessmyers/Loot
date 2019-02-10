@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Sign Up</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item text-center no-lines>
+    <img src="../../assets/imgs/mainImage.png" height="256" width="256"/>
+  </ion-item>
+  <ion-item text-center no-lines>
+    <h1>sign up for loot</h1>
+  </ion-item>
+  <form #f="ngForm" (ngSubmit)="onSignUp(f)">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>First Name</ion-label>
+        <ion-input type="text" ngModel name="username" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Last Name</ion-label>
+        <ion-input type="text" ngModel name="username" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="email" ngModel name="email" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" ngModel name="password" required [minlength]="6"></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button block round type="submit" [disabled]="!f.valid" color="primary">Sign Up</button>
+  </form>
+</ion-content>

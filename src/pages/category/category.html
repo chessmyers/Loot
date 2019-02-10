@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Categories</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="light" (click)="next()">
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>
+  What kinds of items are you looking for?
+  </h2>
+  <ion-list>
+
+    <ion-item>
+      <ion-label>Anything</ion-label>
+      <ion-checkbox [(ngModel)]="anything"></ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Shirts</ion-label>
+      <ion-checkbox [(ngModel)]="shirts"></ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Socks</ion-label>
+      <ion-checkbox [(ngModel)]="socks"></ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Shoes</ion-label>
+      <ion-checkbox [(ngModel)]="shoes"></ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Accessories</ion-label>
+      <ion-checkbox [(ngModel)]="accessories"></ion-checkbox>
+    </ion-item>
+
+  </ion-list>
+
+
+  <!--<ion-grid>-->
+    <!--<ion-row>-->
+      <!--<ion-col>-->
+        <!--<div class="category" text-center>-->
+          <!--Shoes-->
+          <!--<div>-->
+            <!--<img src="../../assets/imgs/ifjzsaba.bmp"/></div>-->
+          <!--</div>-->
+      <!--</ion-col>-->
+      <!--<ion-col>-->
+        <!--<div class="category" text-center>-->
+          <!--Socks-->
+          <!--<div>-->
+            <!--<img src="../../assets/imgs/klofx6et.bmp" height="90"/>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</ion-col>-->
+    <!--</ion-row>-->
+    <!--<ion-row>-->
+      <!--<ion-col>-->
+        <!--<div class="category" text-center>-->
+          <!--Shirts-->
+          <!--<div>-->
+            <!--<img src="../../assets/imgs/03pzxcwp.bmp" />-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</ion-col>-->
+      <!--<ion-col>-->
+        <!--<div class="category" text-center (click)="onClick()">-->
+          <!--Accessories-->
+          <!--<div>-->
+            <!--<img src="../../assets/imgs/jzsg6uhp.bmp" height="90"/></div>-->
+        <!--</div>-->
+      <!--</ion-col>-->
+
+    <!--</ion-row>-->
+  <!--</ion-grid>-->
+
+</ion-content>
